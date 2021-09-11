@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# gather_data.pl, v 0.94, 8-8-2017, subin.hameed@ts.fujitsu.com
+# gather_data.pl, v 0.95, 11-9-2021, subin.hameed@mdxsolutions-me.com
 # Gather FlexFrame information, run individually on all control nodes, hypervisor nodes and application nodes.
 
 use Sys::Hostname;
@@ -173,6 +173,7 @@ if ($osdist eq "suse") {
 &run_command_and_save_output("ls /boot");
 &run_command_and_save_output("ls /boot/grub");
 &run_command_and_save_output("ls /boot/grub2");
+&run_command_and_save_output("lsblk -fp");
 if (&check_file_exists("/boot/grub/menu.lst")) {
   &run_command_and_save_output("cat /boot/grub/menu.lst");
 }
